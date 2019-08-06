@@ -1,0 +1,436 @@
+{
+    "mode": "All",
+    "policyRule": {
+      "if": {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      "then": {
+        "effect": "deployIfNotExists",
+        "details": {
+          "name": "[field('name')]",
+          "type": "Microsoft.Storage/storageAccounts",
+          "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+          ],
+          "deployment": {
+            "properties": {
+              "mode": "incremental",
+              "template": {
+                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "resources": [
+                  {
+                    "kind": "StorageV2",
+                    "apiVersion": "2019-04-01",
+                    "type": "Microsoft.Storage/storageAccounts",
+                    "name": "[parameters('storageAccountName')]",
+                    "location": "[parameters('location')]",
+                    "properties": {
+                      "networkAcls": {
+                        "defaultAction": "Deny",
+                        "bypass": "AzureServices",
+                        "ipRules": [
+                          {
+                            "value": "91.74.64.90",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "113.29.6.58",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "59.100.255.134",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "206.196.17.36",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "213.254.239.34",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "62.23.100.58",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "188.65.156.34",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "87.191.17.106",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "217.111.236.74",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "76.196.80.153",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "144.121.8.18",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "213.86.16.50",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "14.202.163.134",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "89.197.129.218",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "193.65.100.90",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "50.196.32.121",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "212.0.126.66",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "144.121.150.66",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "182.74.33.10",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "144.121.205.234",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "193.15.228.246",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "87.215.26.82",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "172.110.70.106",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "207.180.171.2",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "200.186.98.154",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "62.97.72.98",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "195.239.78.142",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "144.121.57.100",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "213.61.108.250",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "72.211.41.204",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "80.169.104.130",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "66.96.221.186",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "74.113.229.42",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "115.249.188.97",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "50.237.223.130",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "62.72.113.250",
+                            "action": "Allow"
+                          },
+                          {
+                            "value": "66.244.251.74",
+                            "action": "Allow"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "parameters": {
+                  "storageaccountname": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  }
+                }
+              },
+              "parameters": {
+                "storageAccountName": {
+                  "value": "[field('name')]"
+                },
+                "location": {
+                  "value": "[field('location')]"
+                }
+              }
+            }
+          },
+          "existenceCondition": {
+            "allOf": [
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "91.74.64.90"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "113.29.6.58"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "59.100.255.134"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "206.196.17.36"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "213.254.239.34"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "62.23.100.58"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "188.65.156.34"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "87.191.17.106"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "217.111.236.74"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "76.196.80.153"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "144.121.8.18"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "213.86.16.50"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "14.202.163.134"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "89.197.129.218"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "193.65.100.90"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "50.196.32.121"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "212.0.126.66"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "144.121.150.66"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "182.74.33.10"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "144.121.205.234"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "193.15.228.246"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "87.215.26.82"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "172.110.70.106"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "207.180.171.2"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "200.186.98.154"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "62.97.72.98"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "195.239.78.142"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "144.121.57.100"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "213.61.108.250"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "72.211.41.204"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "80.169.104.130"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "66.96.221.186"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "74.113.229.42"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "115.249.188.97"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "50.237.223.130"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "62.72.113.250"
+                }
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+                  "notEquals": "66.244.251.74"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "parameters": {}
+  }
