@@ -144,7 +144,7 @@
                             "action": "Allow"
                           },
                           {
-                            "value": "213.61.108.250",
+                            "value": "62.96.128.58 ",
                             "action": "Allow"
                           },
                           {
@@ -376,7 +376,7 @@
               {
                 "not": {
                   "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                  "notEquals": "213.61.108.250"
+                  "notEquals": "62.96.128.58 "
                 }
               },
               {
