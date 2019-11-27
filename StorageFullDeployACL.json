@@ -1,5 +1,16 @@
 {
+  "properties": {
+    "displayName": "Storage Firewall Remediation",
+    "policyType": "Custom",
     "mode": "All",
+    "metadata": {
+      "category": "Storage",
+      "createdBy": "22ac91f5-be98-45bf-8e9e-00a4aaaf19e6",
+      "createdOn": "2019-08-06T16:11:41.7938175Z",
+      "updatedBy": "22ac91f5-be98-45bf-8e9e-00a4aaaf19e6",
+      "updatedOn": "2019-10-31T13:06:12.7856517Z"
+    },
+    "parameters": {},
     "policyRule": {
       "if": {
         "field": "type",
@@ -144,7 +155,7 @@
                             "action": "Allow"
                           },
                           {
-                            "value": "62.96.128.58 ",
+                            "value": "62.96.128.58",
                             "action": "Allow"
                           },
                           {
@@ -376,7 +387,7 @@
               {
                 "not": {
                   "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                  "notEquals": "62.96.128.58 "
+                  "notEquals": "62.96.128.58"
                 }
               },
               {
@@ -431,6 +442,9 @@
           }
         }
       }
-    },
-    "parameters": {}
-  }
+    }
+  },
+  "id": "/providers/Microsoft.Management/managementGroups/itInfraMgmt01/providers/Microsoft.Authorization/policyDefinitions/256063a3-9e59-46b5-af0f-06db36d7448e",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "256063a3-9e59-46b5-af0f-06db36d7448e"
+}
